@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Under 100 — Best Products to Buy Under £100 | Curated Recommendations</title>
+<meta name="description" content="Discover the best products under £100. Honest, curated recommendations across tech, home, style, wellness and kitchen — only things worth your money.">
+<meta name="keywords" content="best products under £100, budget buys UK, affordable recommendations, tech under 100, home products, curated picks">
+<meta name="author" content="Under 100">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://yoursite.com/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursite.com/">
+<meta property="og:title" content="Under 100 — Best Products to Buy Under £100">
+<meta property="og:description" content="Honest, curated recommendations for products actually worth your money. All under £100.">
+<meta property="og:image" content="https://yoursite.com/og-image.jpg">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Under 100 — Best Products to Buy Under £100">
+<meta name="twitter:description" content="Honest, curated recommendations for products actually worth your money. All under £100.">
+<meta name="twitter:image" content="https://yoursite.com/og-image.jpg">
+
+<!-- Theme -->
+<meta name="theme-color" content="#F5F3F0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5F3F0;
+    --bg-card: #FFFFFF;
+    --text-primary: #2C2825;
+    --text-secondary: #7A746D;
+    --text-muted: #A39E97;
+    --accent: #8C7E6E;
+    --accent-hover: #6E6358;
+    --border: #E8E4DF;
+    --tag-bg: #EDEAE6;
+    --shadow: 0 1px 3px rgba(44,40,37,0.04), 0 6px 16px rgba(44,40,37,0.06);
+    --shadow-hover: 0 2px 8px rgba(44,40,37,0.06), 0 12px 28px rgba(44,40,37,0.1);
+    --radius: 10px;
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Source Sans 3', -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245,243,240,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 1px 12px rgba(44,40,37,0.08); }
+
+  .nav-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .logo {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: var(--accent); }
+
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--accent);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a:hover::after { width: 100%; }
+
+  .menu-toggle {
+    display: none;
+    background: none; border: none; cursor: pointer;
+    width: 28px; height: 20px; position: relative;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 100%; height: 2px;
+    background: var(--text-primary);
+    position: absolute; left: 0;
+    transition: all 0.3s;
+  }
+  .menu-toggle span:nth-child(1) { top: 0; }
+  .menu-toggle span:nth-child(2) { top: 9px; }
+  .menu-toggle span:nth-child(3) { top: 18px; }
+  .menu-toggle.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 80px 24px 56px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    background: var(--tag-bg);
+    padding: 6px 16px;
+    border-radius: 20px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .hero p {
+    max-width: 520px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── FILTERS ── */
+  .filters {
+    max-width: 1120px;
+    margin: 0 auto 40px;
+    padding: 0 24px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.15s ease forwards;
+  }
+  .filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    border-radius: 24px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .filter-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+  .filter-btn.active {
+    background: var(--text-primary);
+    color: var(--bg);
+    border-color: var(--text-primary);
+  }
+
+  /* ── GRID ── */
+  .grid {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: var(--tag-bg);
+  }
+
+  .card-body { padding: 24px; }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .card-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--tag-bg);
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .card-price {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--text-primary);
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  .card-desc {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+  .card-rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+  .stars { color: var(--accent); letter-spacing: 2px; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .footer-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--text-primary); }
+  .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card:nth-child(1) { animation-delay: 0.1s; }
+  .card:nth-child(2) { animation-delay: 0.18s; }
+  .card:nth-child(3) { animation-delay: 0.26s; }
+  .card:nth-child(4) { animation-delay: 0.34s; }
+  .card:nth-child(5) { animation-delay: 0.42s; }
+  .card:nth-child(6) { animation-delay: 0.5s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 64px; left: 0; right: 0;
+      background: rgba(245,243,240,0.97);
+      backdrop-filter: blur(16px);
+      padding: 24px;
+      gap: 20px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.3s ease;
+    }
+    .menu-toggle { display: block; }
+    .hero { padding: 56px 24px 40px; }
+    .grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  @media (max-width: 380px) {
+    .grid { padding: 0 16px 60px; }
+    .hero { padding: 40px 16px 32px; }
+    .card-body { padding: 18px; }
+  }
+</style>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Under 100",
+  "url": "https://yoursite.com",
+  "description": "Curated product recommendations under £100. Honest reviews across tech, home, style, wellness and kitchen.",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Under 100",
+    "url": "https://yoursite.com"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Anker Soundcore Life Q30",
+      "description": "Active noise-cancelling headphones with 40-hour battery life and surprisingly rich sound for the price.",
+      "author": { "@type": "Organization", "name": "Under 100" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Le Creuset Stoneware Mug",
+      "description": "The iconic mug that keeps your coffee hot longer. Chip-resistant enamel in timeless colours.",
+      "author": { "@type": "Organization", "name": "Under 100" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Muji Wool-Blend Scarf",
+      "description": "Soft, lightweight, and endlessly versatile. The everyday scarf that pairs with literally everything.",
+      "author": { "@type": "Organization", "name": "Under 100" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Philips Wake-Up Light",
+      "description": "Sunrise simulation alarm that eases you awake naturally. A genuine upgrade to your mornings.",
+      "author": { "@type": "Organization", "name": "Under 100" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "HAY Terrazzo Tray",
+      "description": "Minimal speckled tray that instantly elevates any surface. Perfect for keys, candles, or display.",
+      "author": { "@type": "Organization", "name": "Under 100" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Kindle Paperwhite",
+      "description": "Waterproof, glare-free, and lighter than a paperback. The best way to carry a thousand books.",
+      "author": { "@type": "Organization", "name": "Under 100" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">under<span>100</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#picks">Picks</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-label">Curated weekly</div>
+  <h1>Smart buys,<br>always under £100</h1>
+  <p>Honest recommendations for products actually worth your money. No fluff, no filler — just things we'd buy ourselves.</p>
+</header>
+
+<!-- FILTERS -->
+<main>
+<div class="filters" id="picks">
+  <button class="filter-btn active" data-cat="all">All</button>
+  <button class="filter-btn" data-cat="tech">Tech</button>
+  <button class="filter-btn" data-cat="home">Home</button>
+  <button class="filter-btn" data-cat="style">Style</button>
+  <button class="filter-btn" data-cat="wellness">Wellness</button>
+  <button class="filter-btn" data-cat="kitchen">Kitchen</button>
+</div>
+
+<!-- GRID -->
+<div class="grid" id="productGrid"></div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <nav aria-label="Footer navigation">
+    <ul class="footer-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy</a></li>
+      <li><a href="#">RSS</a></li>
+    </ul>
+    </nav>
+    <p class="footer-copy">&copy; 2026 under100. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// ── DATA ──
+const products = [
+  {
+    title: "Anker Soundcore Life Q30",
+    desc: "Active noise-cancelling headphones with 40-hour battery life and surprisingly rich sound for the price.",
+    price: "£59",
+    tag: "Tech",
+    cat: "tech",
+    rating: 4.5,
+    img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=450&fit=crop"
+  },
+  {
+    title: "Le Creuset Stoneware Mug",
+    desc: "The iconic mug that keeps your coffee hot longer. Chip-resistant enamel in timeless colours.",
+    price: "£18",
+    tag: "Kitchen",
+    cat: "kitchen",
+    rating: 4.8,
+    img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=450&fit=crop"
+  },
+  {
+    title: "Muji Wool-Blend Scarf",
+    desc: "Soft, lightweight, and endlessly versatile. The everyday scarf that pairs with literally everything.",
+    price: "£35",
+    tag: "Style",
+    cat: "style",
+    rating: 4.3,
+    img: "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=600&h=450&fit=crop"
+  },
+  {
+    title: "Philips Wake-Up Light",
+    desc: "Sunrise simulation alarm that eases you awake naturally. A genuine upgrade to your mornings.",
+    price: "£69",
+    tag: "Wellness",
+    cat: "wellness",
+    rating: 4.6,
+    img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=450&fit=crop"
+  },
+  {
+    title: "HAY Terrazzo Tray",
+    desc: "Minimal speckled tray that instantly elevates any surface. Perfect for keys, candles, or display.",
+    price: "£28",
+    tag: "Home",
+    cat: "home",
+    rating: 4.4,
+    img: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&h=450&fit=crop"
+  },
+  {
+    title: "Kindle Paperwhite",
+    desc: "Waterproof, glare-free, and lighter than a paperback. The best way to carry a thousand books.",
+    price: "£95",
+    tag: "Tech",
+    cat: "tech",
+    rating: 4.9,
+    img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&h=450&fit=crop"
+  }
+];
+
+// ── RENDER ──
+const grid = document.getElementById('productGrid');
+
+function renderStars(rating) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.3;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(5 - full - (half ? 1 : 0));
+}
+
+function renderProducts(filter = 'all') {
+  const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
+  grid.innerHTML = '';
+  filtered.forEach((p, i) => {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.style.animationDelay = `${i * 0.08}s`;
+    card.innerHTML = `
+      <img class="card-img" src="${p.img}" alt="${p.title} — ${p.tag} product under ${p.price}" loading="lazy">
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-tag">${p.tag}</span>
+          <span class="card-price">${p.price}</span>
+        </div>
+        <h2 class="card-title">${p.title}</h2>
+        <p class="card-desc">${p.desc}</p>
+        <div class="card-rating" aria-label="Rating: ${p.rating} out of 5 stars">
+          <span class="stars" aria-hidden="true">${renderStars(p.rating)}</span>
+          <span>${p.rating}</span>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+renderProducts();
+
+// ── FILTERS ──
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderProducts(btn.dataset.cat);
+  });
+});
+
+// ── MOBILE MENU ──
+const toggle = document.getElementById('menuToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('open');
+  links.classList.toggle('open');
+});
+links.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    toggle.classList.remove('open');
+    links.classList.remove('open');
+  });
+});
+
+// ── NAV SHADOW ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+});
+</script>
+</body>
+</html>
