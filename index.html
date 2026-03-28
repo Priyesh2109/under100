@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
 <title>Under 100 — Best Products to Buy Under £100 | Curated Recommendations</title>
-<meta name="description" content="Discover the best products under £100. Honest, curated recommendations across tech, home, style, wellness and kitchen — only things worth your money.">
+<meta name="description" content="Discover the best products under £100. Honest, curated recommendations across tech, home, style and wellness — only things worth your money.">
 <meta name="keywords" content="best products under £100, budget buys UK, affordable recommendations, tech under 100, home products, curated picks">
 <meta name="author" content="Under 100">
 <meta name="robots" content="index, follow">
@@ -352,7 +362,7 @@
   "@type": "Blog",
   "name": "Under 100",
   "url": "https://yoursite.com",
-  "description": "Curated product recommendations under £100. Honest reviews across tech, home, style, wellness and kitchen.",
+  "description": "Curated product recommendations under £100. Honest reviews across tech, home, style and wellness.",
   "inLanguage": "en-GB",
   "publisher": {
     "@type": "Organization",
@@ -364,12 +374,6 @@
       "@type": "BlogPosting",
       "headline": "Anker Soundcore Life Q30",
       "description": "Active noise-cancelling headphones with 40-hour battery life and surprisingly rich sound for the price.",
-      "author": { "@type": "Organization", "name": "Under 100" }
-    },
-    {
-      "@type": "BlogPosting",
-      "headline": "Le Creuset Stoneware Mug",
-      "description": "The iconic mug that keeps your coffee hot longer. Chip-resistant enamel in timeless colours.",
       "author": { "@type": "Organization", "name": "Under 100" }
     },
     {
@@ -418,9 +422,9 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-label">Curated weekly</div>
+  <div class="hero-label">Updated monthly</div>
   <h1>Smart buys,<br>always under £100</h1>
-  <p>Honest recommendations for products actually worth your money. No fluff, no filler — just things we'd buy ourselves.</p>
+  <p>A curated lineup of the clothes, grooming picks, and tech accessories to rely on every day — all under £100. Simple, stylish, and genuinely worth your money.</p>
 </header>
 
 <!-- FILTERS -->
@@ -431,7 +435,6 @@
   <button class="filter-btn" data-cat="home">Home</button>
   <button class="filter-btn" data-cat="style">Style</button>
   <button class="filter-btn" data-cat="wellness">Wellness</button>
-  <button class="filter-btn" data-cat="kitchen">Kitchen</button>
 </div>
 
 <!-- GRID -->
@@ -464,15 +467,6 @@ const products = [
     cat: "tech",
     rating: 4.5,
     img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=450&fit=crop"
-  },
-  {
-    title: "Le Creuset Stoneware Mug",
-    desc: "The iconic mug that keeps your coffee hot longer. Chip-resistant enamel in timeless colours.",
-    price: "£18",
-    tag: "Kitchen",
-    cat: "kitchen",
-    rating: 4.8,
-    img: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=450&fit=crop"
   },
   {
     title: "Muji Wool-Blend Scarf",
@@ -577,5 +571,8 @@ window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
 });
 </script>
+
+<!-- Vercel Analytics — works automatically when deployed to Vercel -->
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
