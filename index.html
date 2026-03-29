@@ -14,7 +14,7 @@
 </script>
 
 <title>Under 100 — Best Products to Buy Under £100 | Curated Recommendations</title>
-<meta name="description" content="Discover the best products under £100. Honest, curated recommendations across tech, home, style and wellness — only things worth your money.">
+<meta name="description" content="Discover the best products under £100. Honest, curated recommendations across tech, home, style and grooming — only things worth your money.">
 <meta name="keywords" content="best products under £100, budget buys UK, affordable recommendations, tech under 100, home products, curated picks">
 <meta name="author" content="Under 100">
 <meta name="robots" content="index, follow">
@@ -362,7 +362,7 @@
   "@type": "Blog",
   "name": "Under 100",
   "url": "https://yoursite.com",
-  "description": "Curated product recommendations under £100. Honest reviews across tech, home, style and wellness.",
+  "description": "Curated product recommendations under £100. Honest reviews across tech, home, style and grooming.",
   "inLanguage": "en-GB",
   "publisher": {
     "@type": "Organization",
@@ -434,7 +434,7 @@
   <button class="filter-btn" data-cat="tech">Tech</button>
   <button class="filter-btn" data-cat="home">Home</button>
   <button class="filter-btn" data-cat="style">Style</button>
-  <button class="filter-btn" data-cat="wellness">Wellness</button>
+  <button class="filter-btn" data-cat="grooming">Grooming</button>
 </div>
 
 <!-- GRID -->
@@ -481,8 +481,8 @@ const products = [
     title: "Philips Wake-Up Light",
     desc: "Sunrise simulation alarm that eases you awake naturally. A genuine upgrade to your mornings.",
     price: "£69",
-    tag: "Wellness",
-    cat: "wellness",
+    tag: "Grooming",
+    cat: "grooming",
     rating: 4.6,
     img: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=600&h=450&fit=crop"
   },
@@ -502,7 +502,8 @@ const products = [
     tag: "Tech",
     cat: "tech",
     rating: 4.9,
-    img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&h=450&fit=crop"
+    img: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&h=450&fit=crop",
+    link: "kindle-paperwhite.html"
   }
 ];
 
@@ -517,12 +518,8 @@ function renderStars(rating) {
 
 function renderProducts(filter = 'all') {
   const filtered = filter === 'all' ? products : products.filter(p => p.cat === filter);
-  grid.innerHTML = '';
-  filtered.forEach((p, i) => {
-    const card = document.createElement('article');
-    card.className = 'card';
-    card.style.animationDelay = `${i * 0.08}s`;
-    card.innerHTML = `
+  grid.innerHTML = filtered.map((p, i) => {
+    const content = `
       <img class="card-img" src="${p.img}" alt="${p.title} — ${p.tag} product under ${p.price}" loading="lazy">
       <div class="card-body">
         <div class="card-meta">
@@ -537,8 +534,11 @@ function renderProducts(filter = 'all') {
         </div>
       </div>
     `;
-    grid.appendChild(card);
-  });
+    if (p.link) {
+      return `<a href="${p.link}" class="card" style="animation-delay:${i * 0.08}s; text-decoration:none; color:inherit; display:block;">${content}</a>`;
+    }
+    return `<article class="card" style="animation-delay:${i * 0.08}s">${content}</article>`;
+  }).join('');
 }
 
 renderProducts();
