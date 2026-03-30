@@ -366,6 +366,31 @@
     margin-bottom: 0 !important;
   }
 
+  /* ── BUY BUTTON ── */
+  .buy-btn {
+    display: block;
+    width: 100%;
+    margin-top: 28px;
+    padding: 18px 32px;
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: background 0.25s, transform 0.25s;
+  }
+  .buy-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+  }
+  .buy-btn:active {
+    transform: translateY(0);
+  }
+
   /* ── FOOTER ── */
   footer {
     border-top: 1px solid var(--border);
@@ -432,7 +457,7 @@
   "brand": { "@type": "Brand", "name": "Rituals" },
   "offers": {
     "@type": "Offer",
-    "price": "27",
+    "price": "26.90",
     "priceCurrency": "GBP",
     "availability": "https://schema.org/InStock"
   },
@@ -484,7 +509,7 @@
   <header class="product-header">
     <div class="product-meta">
       <span class="product-tag">Grooming</span>
-      <span class="product-price">£27</span>
+      <span class="product-price">£26.90</span>
       <div class="product-rating">
         <span class="stars">★★★★½</span>
         <span>4.7</span>
@@ -506,7 +531,7 @@
     </div>
 
     <h2>Why it made the list</h2>
-    <p>Finding an aftershave balm that actually feels premium without the premium price tag is surprisingly difficult. The Rituals Homme Soothing Balm manages it at £27 — it smells genuinely luxurious, absorbs quickly without any greasy residue, and calms irritation the moment it touches your skin.</p>
+    <p>Finding an aftershave balm that actually feels premium without the premium price tag is surprisingly difficult. The Rituals Homme Soothing Balm manages it at £26.90 — it smells genuinely luxurious, absorbs quickly without any greasy residue, and calms irritation the moment it touches your skin.</p>
     <p>The alcohol-free formula is a big deal. Most aftershaves at this price rely on alcohol, which stings and dries out your skin. This one uses a Ginseng and Hydra Complex instead, so your skin feels hydrated and comfortable rather than tight and irritated. It's the kind of product that quietly elevates your daily routine.</p>
 
     <h2>Key details</h2>
@@ -542,12 +567,14 @@
     </div>
 
     <h2>Who it's for</h2>
-    <p>Anyone who shaves regularly and wants something that genuinely looks after their skin afterwards — not just masks the irritation. It works particularly well for those with sensitive skin who've struggled with alcohol-based aftershaves in the past. If you want your grooming routine to feel a notch more considered without spending a fortune, this is a smart place to start.</p>
+    <p>Anyone who shaves regularly and wants something that genuinely looks after their skin afterwards — not just masks the irritation. It works particularly well for those with sensitive skin who've struggled with alcohol-based aftershaves in the past. If you want your grooming routine to feel a bit more premium without spending a fortune, this is a great place to start.</p>
 
     <div class="verdict">
       <h2>The verdict</h2>
-      <p>At £27 for 100ml, this punches well above its weight. The formula, the scent, and the packaging all feel like they belong to a product twice the price. It's become a daily staple — the kind of product you'd happily repurchase without thinking twice.</p>
+      <p>At £26.90 for 100ml, this punches well above its weight. The formula, the scent, and the packaging all feel like they belong to a product twice the price. It's become a daily staple — the kind of product you'd happily repurchase without thinking twice.</p>
     </div>
+
+    <a href="https://amzn.to/481lJAq" target="_blank" rel="noopener noreferrer" class="buy-btn">Buy this now</a>
   </div>
 </article>
 
@@ -559,6 +586,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Privacy</a></li>
+      <li><a href="#">Support me</a></li>
       <li><a href="#">RSS</a></li>
     </ul>
     </nav>
