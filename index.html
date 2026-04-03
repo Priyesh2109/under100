@@ -193,22 +193,56 @@
     animation: fadeUp 0.8s 0.15s ease forwards;
   }
   .filter-btn {
+    position: relative;
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 8px 20px;
+    border: none;
+    padding: 10px 28px;
     border-radius: 24px;
     font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 500;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: all 0.25s;
+    transition: background 0.6s ease-in-out, color 0.3s;
+    overflow: hidden;
   }
-  .filter-btn:hover { border-color: var(--accent); color: var(--text-primary); }
+  .filter-btn .filter-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 2;
+    pointer-events: none;
+  }
+  .filter-btn .bg-line {
+    stroke: var(--border);
+  }
+  .filter-btn .hl-line {
+    stroke: var(--accent);
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  }
+  .filter-btn span { position: relative; z-index: 1; }
+  .filter-btn:hover {
+    background: var(--tag-bg);
+    color: var(--text-primary);
+  }
+  .filter-btn:hover .hl-line {
+    stroke-dashoffset: -480;
+  }
   .filter-btn.active {
     background: var(--text-primary);
     color: var(--bg);
-    border-color: var(--text-primary);
+  }
+  .filter-btn.active .hl-line {
+    stroke: var(--bg);
+    stroke-dashoffset: -480;
+  }
+  .filter-btn.active .bg-line {
+    stroke: var(--text-primary);
   }
 
   /* ── GRID ── */
@@ -314,13 +348,6 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--text-primary); }
-  .bmc-link {
-    background: var(--tag-bg);
-    padding: 6px 14px;
-    border-radius: 20px;
-    transition: background 0.2s, color 0.2s;
-  }
-  .bmc-link:hover { background: var(--accent); color: var(--bg) !important; }
   .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
 
   /* ── ANIMATIONS ── */
@@ -412,18 +439,33 @@
 <!-- HERO -->
 <header class="hero">
   <div class="hero-label">Updated monthly</div>
-  <h1>Smart buys,<br>always under £100</h1>
+  <h1>Smart buys<br>always under £100.</h1>
   <p>A curated lineup of the clothes, grooming picks, and tech accessories to rely on every day — all under £100. Simple, stylish, and genuinely worth your money.</p>
 </header>
 
 <!-- FILTERS -->
 <main>
 <div class="filters" id="picks">
-  <button class="filter-btn active" data-cat="all">All</button>
-  <button class="filter-btn" data-cat="tech">Tech</button>
-  <button class="filter-btn" data-cat="home">Home</button>
-  <button class="filter-btn" data-cat="style">Style</button>
-  <button class="filter-btn" data-cat="grooming">Grooming</button>
+  <button class="filter-btn active" data-cat="all">
+    <svg viewBox="0 0 120 42" class="filter-border"><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="bg-line" /><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="hl-line" /></svg>
+    <span>All</span>
+  </button>
+  <button class="filter-btn" data-cat="tech">
+    <svg viewBox="0 0 120 42" class="filter-border"><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="bg-line" /><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="hl-line" /></svg>
+    <span>Tech</span>
+  </button>
+  <button class="filter-btn" data-cat="home">
+    <svg viewBox="0 0 120 42" class="filter-border"><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="bg-line" /><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="hl-line" /></svg>
+    <span>Home</span>
+  </button>
+  <button class="filter-btn" data-cat="style">
+    <svg viewBox="0 0 120 42" class="filter-border"><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="bg-line" /><rect x="1" y="1" width="118" height="40" rx="20" ry="20" class="hl-line" /></svg>
+    <span>Style</span>
+  </button>
+  <button class="filter-btn" data-cat="grooming">
+    <svg viewBox="0 0 140 42" class="filter-border"><rect x="1" y="1" width="138" height="40" rx="20" ry="20" class="bg-line" /><rect x="1" y="1" width="138" height="40" rx="20" ry="20" class="hl-line" /></svg>
+    <span>Grooming</span>
+  </button>
 </div>
 
 <!-- GRID -->
@@ -438,7 +480,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Privacy</a></li>
-      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" class="bmc-link">☕ Buy me a coffee</a></li>
+      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF;">☕ Buy me a coffee</a></li>
       <li><a href="#">RSS</a></li>
     </ul>
     </nav>
