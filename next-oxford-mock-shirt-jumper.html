@@ -15,7 +15,7 @@
 
 <title>Next Navy Blue Textured Oxford Mock Shirt Jumper Review — Under 100</title>
 <meta name="description" content="Full review of the Next Navy Blue Textured Oxford Mock Shirt Jumper. Smart-casual layering made effortless, at just £30.">
-<meta name="keywords" content="Next mock shirt jumper review, Oxford mock shirt jumper, smart casual jumper under £100, Next menswear, under 100">
+<meta name="keywords" content="jumper that looks like a shirt, smartest cheap jumper you'll find, outfit hack every guy needs, look expensive for less, wardrobe upgrade under £30, Next jumper everyone is buying, lazy style trick that works">
 <meta name="author" content="Under 100">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://yoursite.com/next-oxford-mock-shirt-jumper.html">
@@ -255,15 +255,26 @@
     padding: 24px 28px;
     margin: 0 0 32px;
     box-shadow: 0 1px 3px rgba(44,40,37,0.04), 0 6px 16px rgba(44,40,37,0.06);
+    display: flex;
+    gap: 20px;
+    align-items: center;
   }
-  .my-review blockquote {
+  .my-review-avatar {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
+  .my-review-text blockquote {
     font-family: var(--font-display);
     font-size: 1.2rem;
     line-height: 1.5;
     color: var(--text-primary);
     margin-bottom: 8px;
   }
-  .my-review cite {
+  .my-review-text cite {
     font-style: normal;
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -349,30 +360,12 @@
   .pros li::before { content: '+'; color: var(--accent); }
   .cons li::before { content: '–'; color: var(--text-muted); }
 
-  /* ── VERDICT ── */
-  .verdict {
-    background: var(--text-primary);
-    color: var(--bg);
-    border-radius: var(--radius);
-    padding: 32px;
-    margin-top: 40px;
-  }
-  .verdict h2 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    margin: 0 0 12px !important;
-    color: var(--bg) !important;
-  }
-  .verdict p {
-    color: var(--text-muted) !important;
-    margin-bottom: 0 !important;
-  }
 
   /* ── BUY BUTTON ── */
   .buy-btn {
     display: block;
     width: 100%;
-    margin-top: 28px;
+    margin-top: 32px;
     padding: 18px 32px;
     background: var(--accent);
     color: var(--bg);
@@ -395,7 +388,7 @@
 
   /* ── FOOTER ── */
   footer {
-    border-top: 1px solid var(--border);
+    
     padding: 40px 24px;
     text-align: center;
   }
@@ -407,7 +400,7 @@
     align-items: center;
     gap: 12px;
   }
-  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links { display: flex; gap: 16px 24px; list-style: none; flex-wrap: wrap; justify-content: center; }
   .footer-links a {
     text-decoration: none;
     color: var(--text-muted);
@@ -445,7 +438,6 @@
 
   @media (max-width: 380px) {
     .product-article { padding: 24px 16px 60px; }
-    .verdict { padding: 24px; }
   }
 </style>
 
@@ -527,8 +519,11 @@
   <div class="product-content">
 
     <div class="my-review">
-      <blockquote>"For days where you don't want to wear a shirt but still look smart."</blockquote>
-      <cite>— My review</cite>
+      <img src="avatar.jpg" alt="Priyesh" class="my-review-avatar">
+      <div class="my-review-text">
+        <blockquote>"For days where you don't want to wear a shirt but still look smart."</blockquote>
+        <cite>— My review</cite>
+      </div>
     </div>
 
     <h2>Why it made the list</h2>
@@ -570,11 +565,6 @@
     <h2>Who it's for</h2>
     <p>Anyone who wants to look put-together without actually layering separate pieces. It's ideal for office days where you want to look smart but stay comfortable, weekend lunches where a plain jumper feels too casual, or any situation where you'd normally reach for a shirt-and-jumper combo but can't be bothered with the fuss. At £30, it's an easy buy to have on standby in your wardrobe.</p>
 
-    <div class="verdict">
-      <h2>The verdict</h2>
-      <p>For £30 you're getting a genuinely clever piece of knitwear. The mock shirt detail is well executed, the fit is clean, and the cotton-rich fabric feels good against the skin. It's one of those rare high-street finds where the quality quietly punches above the price tag.</p>
-    </div>
-
     <a href="https://www.next.co.uk/style/su601073/f08840" target="_blank" rel="noopener noreferrer" class="buy-btn">Buy this now</a>
   </div>
 </article>
@@ -587,7 +577,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Privacy</a></li>
-      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF;">☕ Buy me a coffee</a></li>
+      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF; white-space: nowrap;">☕ Buy me a coffee</a></li>
       <li><a href="#">RSS</a></li>
     </ul>
     </nav>
