@@ -15,7 +15,7 @@
 
 <title>TECKNET 2.4G Wireless Mini Keyboard Review — Under 100</title>
 <meta name="description" content="Full review of the TECKNET 2.4G Wireless Mini Keyboard. Whisper-quiet, compact, and under £15 — a no-brainer desk upgrade.">
-<meta name="keywords" content="TECKNET wireless keyboard review, best budget keyboard UK, quiet wireless keyboard under £100, mini keyboard, under 100">
+<meta name="keywords" content="best keyboard you've never heard of, silent keyboard that actually works, cheapest keyboard worth buying, desk upgrade under £15, wireless keyboard everyone needs, budget tech that slaps, quietest keyboard on Amazon">
 <meta name="author" content="Under 100">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://yoursite.com/tecknet-wireless-keyboard.html">
@@ -248,15 +248,26 @@
     padding: 24px 28px;
     margin: 0 0 32px;
     box-shadow: 0 1px 3px rgba(44,40,37,0.04), 0 6px 16px rgba(44,40,37,0.06);
+    display: flex;
+    gap: 20px;
+    align-items: center;
   }
-  .my-review blockquote {
+  .my-review-avatar {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
+  .my-review-text blockquote {
     font-family: var(--font-display);
     font-size: 1.2rem;
     line-height: 1.5;
     color: var(--text-primary);
     margin-bottom: 8px;
   }
-  .my-review cite {
+  .my-review-text cite {
     font-style: normal;
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -342,30 +353,12 @@
   .pros li::before { content: '+'; color: var(--accent); }
   .cons li::before { content: '–'; color: var(--text-muted); }
 
-  /* ── VERDICT ── */
-  .verdict {
-    background: var(--text-primary);
-    color: var(--bg);
-    border-radius: var(--radius);
-    padding: 32px;
-    margin-top: 40px;
-  }
-  .verdict h2 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    margin: 0 0 12px !important;
-    color: var(--bg) !important;
-  }
-  .verdict p {
-    color: var(--text-muted) !important;
-    margin-bottom: 0 !important;
-  }
 
   /* ── BUY BUTTON ── */
   .buy-btn {
     display: block;
     width: 100%;
-    margin-top: 28px;
+    margin-top: 32px;
     padding: 18px 32px;
     background: var(--accent);
     color: var(--bg);
@@ -399,7 +392,7 @@
     align-items: center;
     gap: 12px;
   }
-  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links { display: flex; gap: 16px 24px; list-style: none; flex-wrap: wrap; justify-content: center; }
   .footer-links a {
     text-decoration: none;
     color: var(--text-muted);
@@ -436,7 +429,6 @@
 
   @media (max-width: 380px) {
     .product-article { padding: 24px 16px 60px; }
-    .verdict { padding: 24px; }
   }
 </style>
 
@@ -516,8 +508,11 @@
   <div class="product-content">
 
     <div class="my-review">
-      <blockquote>"I've been using this keyboard heavily (not a keyboard warrior) since 2023 and yet to find a defect with this product. The keys haven't broken off, there is no lag when typing and no random disconnections."</blockquote>
-      <cite>— My review</cite>
+      <img src="avatar.jpg" alt="Priyesh" class="my-review-avatar">
+      <div class="my-review-text">
+        <blockquote>"I've been using this keyboard heavily (not a keyboard warrior) since 2023 and yet to find a defect with this product. The keys haven't broken off, there is no lag when typing and no random disconnections."</blockquote>
+        <cite>— My review</cite>
+      </div>
     </div>
 
     <h2>Why it made the list</h2>
@@ -560,11 +555,6 @@
     <h2>Who it's for</h2>
     <p>Anyone who needs a reliable, quiet keyboard without spending much. It's ideal for a home office setup, a secondary keyboard for the living room, or something compact to throw in a bag. If you work in a shared space or take calls while typing, the near-silent keys are a genuine advantage. At under £15 it's practically disposable — but it doesn't feel like it.</p>
 
-    <div class="verdict">
-      <h2>The verdict</h2>
-      <p>It's hard to find fault at £14.99. The build quality is solid for the price, the typing experience is comfortable, and the wireless connection is reliable out to 15 metres. It's a keyboard that does its job well.</p>
-    </div>
-
     <a href="https://amzn.to/4va2PBp" target="_blank" rel="noopener noreferrer" class="buy-btn">Buy this now</a>
   </div>
 </article>
@@ -577,7 +567,7 @@
       <li><a href="#">About</a></li>
       <li><a href="#">Contact</a></li>
       <li><a href="#">Privacy</a></li>
-      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF;">☕ Buy me a coffee</a></li>
+      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF; white-space: nowrap;">☕ Buy me a coffee</a></li>
       <li><a href="#">RSS</a></li>
     </ul>
     </nav>
