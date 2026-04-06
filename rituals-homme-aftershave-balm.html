@@ -15,7 +15,7 @@
 
 <title>Rituals Homme After Shave Soothing Balm Review — Under 100</title>
 <meta name="description" content="Full review of the Rituals Homme After Shave Soothing Balm. Alcohol-free, lightweight, and under £30 — a premium grooming essential that calms and hydrates.">
-<meta name="keywords" content="Rituals Homme aftershave balm review, best aftershave under £100, grooming under 100, soothing balm UK, Rituals Homme review">
+<meta name="keywords" content="aftershave that actually works, best kept grooming secret, grooming product you need, Rituals aftershave worth the hype, game-changing aftershave balm, luxury grooming under £30, skincare men are sleeping on">
 <meta name="author" content="Under 100">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://yoursite.com/rituals-homme-aftershave-balm.html">
@@ -221,23 +221,60 @@
     line-height: 1.7;
   }
 
-  /* ── HERO IMAGE ── */
-  .product-hero-img {
+  /* ── FLIP CARD ── */
+  .product-flip-container {
     width: 100%;
     max-width: 420px;
-    display: block;
     margin: 0 auto 48px;
-    border-radius: var(--radius);
-    background: var(--bg-card);
-    padding: 40px;
-    box-shadow: 0 1px 3px rgba(44,40,37,0.04), 0 6px 16px rgba(44,40,37,0.06);
+    perspective: 1000px;
+    cursor: pointer;
     opacity: 0;
     animation: fadeUp 0.6s 0.2s ease forwards;
   }
-  .product-hero-img img {
+  .product-flip-inner {
+    position: relative;
     width: 100%;
-    height: auto;
+    aspect-ratio: 3/4;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+  .product-flip-container.flipped .product-flip-inner {
+    transform: rotateY(180deg);
+  }
+  .product-flip-front,
+  .product-flip-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-card);
+    box-shadow: 0 1px 3px rgba(44,40,37,0.04), 0 6px 16px rgba(44,40,37,0.06);
+  }
+  .product-flip-back {
+    transform: rotateY(180deg);
+  }
+  .product-flip-front img,
+  .product-flip-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+  }
+  .flip-hint {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    transition: opacity 0.3s;
+  }
+  .product-flip-container.flipped .flip-hint {
+    opacity: 0.5;
   }
 
   /* ── QUOTE ── */
@@ -248,15 +285,26 @@
     padding: 24px 28px;
     margin: 32px 0;
     box-shadow: 0 1px 3px rgba(44,40,37,0.04), 0 6px 16px rgba(44,40,37,0.06);
+    display: flex;
+    gap: 20px;
+    align-items: center;
   }
-  .my-review blockquote {
+  .my-review-avatar {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+  }
+  .my-review-text blockquote {
     font-family: var(--font-display);
     font-size: 1.2rem;
     line-height: 1.5;
     color: var(--text-primary);
     margin-bottom: 8px;
   }
-  .my-review cite {
+  .my-review-text cite {
     font-style: normal;
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -347,30 +395,12 @@
   .pros li::before { content: '+'; color: var(--accent); }
   .cons li::before { content: '–'; color: var(--text-muted); }
 
-  /* ── VERDICT ── */
-  .verdict {
-    background: var(--text-primary);
-    color: var(--bg);
-    border-radius: var(--radius);
-    padding: 32px;
-    margin-top: 40px;
-  }
-  .verdict h2 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    margin: 0 0 12px !important;
-    color: var(--bg) !important;
-  }
-  .verdict p {
-    color: var(--text-muted) !important;
-    margin-bottom: 0 !important;
-  }
 
   /* ── BUY BUTTON ── */
   .buy-btn {
     display: block;
     width: 100%;
-    margin-top: 28px;
+    margin-top: 32px;
     padding: 18px 32px;
     background: var(--accent);
     color: var(--bg);
@@ -393,7 +423,7 @@
 
   /* ── FOOTER ── */
   footer {
-    border-top: 1px solid var(--border);
+    
     padding: 40px 24px;
     text-align: center;
   }
@@ -405,7 +435,7 @@
     align-items: center;
     gap: 12px;
   }
-  .footer-links { display: flex; gap: 24px; list-style: none; }
+  .footer-links { display: flex; gap: 16px 24px; list-style: none; flex-wrap: wrap; justify-content: center; }
   .footer-links a {
     text-decoration: none;
     color: var(--text-muted);
@@ -438,12 +468,11 @@
     }
     .menu-toggle { display: block; }
     .pros-cons { grid-template-columns: 1fr; }
-    .product-hero-img { padding: 24px; }
+    .product-flip-container { max-width: 320px; }
   }
 
   @media (max-width: 380px) {
     .product-article { padding: 24px 16px 60px; }
-    .verdict { padding: 24px; }
   }
 </style>
 
@@ -488,7 +517,7 @@
     <a href="index.html" class="logo">under<span>100</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#picks">Picks</a></li>
-      <li><a href="#">About</a></li>
+      
     </ul>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -519,15 +548,26 @@
     <p class="subtitle">Ginseng and hydra complex calm irritation instantly. Lightweight, non-greasy, and leaves skin feeling smooth all day.</p>
   </header>
 
-  <div class="product-hero-img">
-    <img src="1116295-aftershavebalm-100ml.webp" alt="Rituals Homme After Shave Soothing Balm 100ml bottle">
+  <div class="product-flip-container" id="flipCard" onclick="this.classList.toggle('flipped')">
+    <div class="product-flip-inner">
+      <div class="product-flip-front">
+        <img src="rituals-front.jpeg" alt="Rituals Homme After Shave Soothing Balm 100ml bottle">
+      </div>
+      <div class="product-flip-back">
+        <img src="rituals-back.jpeg" alt="Rituals Homme After Shave Soothing Balm — back label showing 97% natural origin ingredients">
+      </div>
+    </div>
+    <p class="flip-hint">Tap to flip</p>
   </div>
 
   <div class="product-content">
 
     <div class="my-review">
-      <blockquote>"A premium smelling aftershave that leaves your skin smooth and hydrated."</blockquote>
-      <cite>— My review</cite>
+      <img src="avatar.jpg" alt="Priyesh" class="my-review-avatar">
+      <div class="my-review-text">
+        <blockquote>"A premium smelling aftershave that leaves your skin smooth and hydrated."</blockquote>
+        <cite>— My review</cite>
+      </div>
     </div>
 
     <h2>Why it made the list</h2>
@@ -569,11 +609,6 @@
     <h2>Who it's for</h2>
     <p>Anyone who shaves regularly and wants something that genuinely looks after their skin afterwards — not just masks the irritation. It works particularly well for those with sensitive skin who've struggled with alcohol-based aftershaves in the past. If you want your grooming routine to feel a bit more premium without spending a fortune, this is a great place to start.</p>
 
-    <div class="verdict">
-      <h2>The verdict</h2>
-      <p>At £26.90 for 100ml, this punches well above its weight. The formula, the scent, and the packaging all feel like they belong to a product twice the price. It's become a daily staple — the kind of product you'd happily repurchase without thinking twice.</p>
-    </div>
-
     <a href="https://amzn.to/481lJAq" target="_blank" rel="noopener noreferrer" class="buy-btn">Buy this now</a>
   </div>
 </article>
@@ -583,10 +618,10 @@
   <div class="footer-inner">
     <nav aria-label="Footer navigation">
     <ul class="footer-links">
-      <li><a href="#">About</a></li>
+      
       <li><a href="#">Contact</a></li>
       <li><a href="#">Privacy</a></li>
-      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF;">☕ Buy me a coffee</a></li>
+      <li><a href="https://www.buymeacoffee.com/financiallyc" target="_blank" rel="noopener noreferrer" style="color: #5F7FFF; white-space: nowrap;">☕ Buy me a coffee</a></li>
       <li><a href="#">RSS</a></li>
     </ul>
     </nav>
