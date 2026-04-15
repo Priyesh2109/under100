@@ -340,6 +340,11 @@
   .card:nth-child(5) { animation-delay: 0.42s; }
   .card:nth-child(6) { animation-delay: 0.5s; }
 
+  /* ── MOBILE PROMPT ── */
+  .mobile-prompt {
+    display: none;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -358,6 +363,15 @@
     .menu-toggle { display: block; }
     .hero { padding: 56px 24px 40px; }
     .grid { grid-template-columns: 1fr; gap: 20px; }
+    .mobile-prompt {
+      display: block;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 40px 24px 60px;
+    }
+    .mobile-prompt.hidden { display: none; }
   }
 
   @media (max-width: 380px) {
@@ -445,6 +459,7 @@
 
 <!-- GRID -->
 <div class="grid" id="productGrid"></div>
+<p class="mobile-prompt" id="mobilePrompt">Choose a category above to see picks</p>
 </main>
 
 <!-- FOOTER -->
@@ -542,7 +557,15 @@ function renderProducts(filter = 'all') {
   }).join('');
 }
 
-renderProducts();
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+const prompt = document.getElementById('mobilePrompt');
+
+// On desktop, show all products. On mobile, wait for category click.
+if (!isMobile) {
+  renderProducts();
+} else {
+  document.querySelector('.filter-btn.active').classList.remove('active');
+}
 
 // ── FILTERS ──
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -550,6 +573,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderProducts(btn.dataset.cat);
+    if (prompt) prompt.classList.add('hidden');
   });
 });
 
