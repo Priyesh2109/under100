@@ -218,16 +218,55 @@
     line-height: 1.7;
   }
 
-  .product-hero-img {
+  /* ── IMAGE TRANSITION ── */
+  .image-transition {
+    position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+    max-width: 600px;
+    aspect-ratio: 4/3;
+    margin: 0 auto 48px;
     border-radius: var(--radius);
-    display: block;
-    margin-bottom: 48px;
-    background: var(--tag-bg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
     opacity: 0;
     animation: fadeUp 0.6s 0.2s ease forwards;
+    cursor: pointer;
+  }
+  .image-transition img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+  }
+  .image-transition img:last-child {
+    opacity: 0;
+  }
+  .image-transition.show-second img:first-child {
+    opacity: 0;
+  }
+  .image-transition.show-second img:last-child {
+    opacity: 1;
+  }
+  .image-transition-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .image-transition-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .image-transition-dot.active {
+    background: var(--accent);
   }
 
   .product-content {
@@ -466,9 +505,25 @@
     <p class="subtitle">Six smart programmes, a ClearCook window, and a family-sized 5.7L drawer. The air fryer that earns its place on your counter.</p>
   </header>
 
-  <img class="product-hero-img" src="https://images.unsplash.com/photo-1648759885150-4ed915ea98b3?w=1200&h=675&fit=crop" alt="Instant Vortex 5.7L Digital Air Fryer on a kitchen counter">
+  <div class="image-transition" id="imageTransition">
+    <img src="instant-vortex-1.jpg" alt="Instant Vortex Plus control panel showing 6 smart programmes">
+    <img src="instant-vortex-2.jpg" alt="Air fryer with food being prepared">
+  </div>
+  <div class="image-transition-dots">
+    <button class="image-transition-dot active" data-index="0"></button>
+    <button class="image-transition-dot" data-index="1"></button>
+  </div>
 
   <div class="product-content">
+
+    <div class="my-review">
+      <img src="avatar.jpg" alt="Priyesh" class="my-review-avatar">
+      <div class="my-review-text">
+        <blockquote>"I have been using this air-fryer over a year, and haven't had any issues. Whilst it is a little loud and hard to clean, this air-fryer does its job well."</blockquote>
+        <cite>— My review</cite>
+      </div>
+    </div>
+
     <h2>Why it made the list</h2>
     <p>If you've been on the fence about air fryers, this is the one that settles it. The Instant Vortex hits the sweet spot between capacity, features and price — you get a proper family-sized 5.7L drawer, six cooking programmes, and the ClearCook window that lets you check your food without opening the drawer and losing the heat.</p>
     <p>It cooks fast, it's cheaper to run than your oven, and the touch-button interface is simple enough that you don't need the manual after the first use. For £60 it's honestly hard to find a reason not to own one.</p>
@@ -498,9 +553,8 @@
       <div class="pros-cons-box cons">
         <h3>Cons</h3>
         <ul>
-          <li>Takes up noticeable counter space</li>
-          <li>Can smell of whatever you cooked last time</li>
-          <li>Fan noise is louder than some rivals</li>
+          <li>A little loud when in use</li>
+          <li>Hard to clean, especially the basket</li>
         </ul>
       </div>
     </div>
@@ -542,6 +596,37 @@ links.querySelectorAll('a').forEach(a => {
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
 });
+
+// ── IMAGE TRANSITION ──
+(() => {
+  const container = document.getElementById('imageTransition');
+  const dots = document.querySelectorAll('.image-transition-dot');
+  let showing = false;
+
+  // Auto-transition every 4 seconds
+  setInterval(() => {
+    showing = !showing;
+    container.classList.toggle('show-second', showing);
+    dots[0].classList.toggle('active', !showing);
+    dots[1].classList.toggle('active', showing);
+  }, 4000);
+
+  // Click to toggle
+  container.addEventListener('click', () => {
+    showing = !showing;
+    container.classList.toggle('show-second', showing);
+    dots[0].classList.toggle('active', !showing);
+    dots[1].classList.toggle('active', showing);
+  });
+
+  // Dot clicks
+  dots.forEach(d => d.addEventListener('click', () => {
+    showing = d.dataset.index === '1';
+    container.classList.toggle('show-second', showing);
+    dots[0].classList.toggle('active', !showing);
+    dots[1].classList.toggle('active', showing);
+  }));
+})();
 </script>
 
 <script defer src="/_vercel/insights/script.js"></script>
